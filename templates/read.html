@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %} Detalles de Animales {% endblock %}
+
+{% block main %}
+{% if animal %}
+  <h1>Detalle de Animales</h1>
+  <p>Nombre: {{ animal.name }}</p>
+  <p>Nombre Científico: {{ animal.cientific_name }}</p>
+  <p>Ubicación: {{ animal.location }}</p>
+  <p>Género: {{ animal.gender }}</p>
+  <p>Cantidad: {{ animal.count }}</p>
+  <a href="/">Volver a la lista de Animales</a>
+{% else %}
+  <p>Animal not found!</p>
+{% endif %}
+{% endblock %}
