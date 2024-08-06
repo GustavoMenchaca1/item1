@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash 
 from models.models import Animal,  db
 from sqlalchemy_utils import database_exists
-
-
+import os 
 
 app = Flask(__name__)
 
@@ -42,6 +41,7 @@ def edit(animals_id):
 
         try:
             db.session.commit()
+            flash('animal actualizado correctamente','succes')
             return redirect("/")  # Redirect to main page after successful update
         except Exception as e:
             print(f"Error updating animal: {e}")

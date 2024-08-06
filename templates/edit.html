@@ -2,30 +2,44 @@
 
 {% block main %}
 
+<div class="container-fluid">
 
-<h1 class="text-center mt-5 mb-5 text-primary"></h1>Editar</h1>
+     <h1 class="text-center mt-5 mb-5 text-dark">Formulario para edición</h1>
 
-    <form method="POST" action="/edit/{{ animals_db }}"> <input type="hidden" name="id" value="{{ animals.id }}"> <label for="location">Locacion:</label>
-        <input type="text" id="location" name="location" value="{{animals.location}}">
+    
 
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" name="name" value="{{animals.name}}">
-
-        <label for="cientific_name">Nombre Científico:</label>
-        <input type="text" id="cientific_name" name="cientific_name" value="{{animals.cientific_name}}">
-
-        <label for="location">Ubicación:</label>
-        <input type="text" id="location" name="location" value="{{animals.location}}">
-
-        <label for="gender">Género:</label>
-        <input type="text" id="gender" name="gender" value="{{animals.gender}}">
-
-        <label for="count">Cantidad:</label>
-        <input type="text" id="count" name="count" value="{{animals.count}}">
-
-        <button type="submit">Guardar cambios</button>
+    <form method="POST" action="/edit/{{ animals_id }}"> <input type="hidden" name="id" value="{{ animals.id }}"> 
+        
+        <div class="mb-3">
+            <label for="location" class="form-label">Locacion:</label>
+            <input type="text" class="form-control" id="location" name="location" value="{{animals.location}}">
+        </div>
+        <div class="mb-3"> 
+            <label for="name" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{animals.name}}">
+        </div>
+        <div class="mb-3">
+            <label for="cientific_name"class="form-label" >Nombre Científico:</label>
+            <input type="text" class="form-control"  id="cientific_name" name="cientific_name" value="{{animals.cientific_name}}">
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Ubicación:</label>
+            <input type="text" class="form-control" id="location" name="location" value="{{animals.location}}">
+        </div>
+        <div class="mb-3">
+            <label for="gender"class="form-label" >Género:</label>
+            <input type="text" class="form-control" id="gender" name="gender" value="{{animals.gender}}">
+        </div>
+        <div class="mb-3">
+            <label for="count"class="form-label" >Cantidad:</label>
+            <input type="text" class="form-control" id="count" name="count" value="{{animals.count}}">
+        </div>
+        
+        <button type="submit" class="btn btn-success">Guardar cambios</button>
     </form>
     <a href="/">Volver a la lista de Animales</a>
+</div>
+
 
 
 {% endblock main %}

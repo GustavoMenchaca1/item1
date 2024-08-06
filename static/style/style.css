@@ -1,5 +1,11 @@
 .container {
-    background-color: antiquewhite;
-    padding: 40px;
+    background-color: rgb(112, 135, 174);
+    padding: 70px;
     border-color: aqua;
+    margin: 30px;
+    border-radius: 10px;
+}
+.micolor {
+    background-color: #212529;
+    color: #4d5451;
 }

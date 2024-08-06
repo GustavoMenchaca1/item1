@@ -4,13 +4,23 @@
 
 {% block main %}
 {% if animal %}
-  <h1>Detalle de Animales</h1>
-  <p>Nombre: {{ animal.name }}</p>
-  <p>Nombre Científico: {{ animal.cientific_name }}</p>
-  <p>Ubicación: {{ animal.location }}</p>
-  <p>Género: {{ animal.gender }}</p>
-  <p>Cantidad: {{ animal.count }}</p>
-  <a href="/">Volver a la lista de Animales</a>
+<div class="container-fluid">
+  <div class="micolor">
+
+  
+
+   <h1 class="text-center">Detalle de Animales</h1>
+
+   <ul class="list-group">
+    <li class="list-group-item">Nombre: {{ animal.name }}</li>
+    <li class="list-group-item">Nombre Científico: {{ animal.cientific_name }}</li>
+    <li class="list-group-item">Ubicación: {{ animal.location }}</li>
+    <li class="list-group-item">Género: {{ animal.gender }}</li>
+    <li class="list-group-item">Cantidad: {{ animal.count }}</li>
+   </ul>
+   <a href="/">Volver a la lista de Animales</a>
+  </div>
+</div>
 {% else %}
   <p>Animal not found!</p>
 {% endif %}
