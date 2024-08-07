@@ -8,4 +8,7 @@
 .micolor {
     background-color: #212529;
     color: #4d5451;
+    padding: 70px;
+    margin: 30px;
+    border-radius: 10px;
 }

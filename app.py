@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, flash 
 from models.models import Animal,  db
 from sqlalchemy_utils import database_exists
-import os 
+from os import getcwd
 
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///dbFinal.db"
+app.config['SECRET_KEY'] = 'supersecretkey'
 db.init_app(app)
 
 with app.app_context():
@@ -50,13 +51,22 @@ def edit(animals_id):
     return render_template("edit.html", animals=animals_db)
 
 
-@app.route("/delete/<animals_id>")
+@app.route("/delete/<animals_id>", methods = ["GET", "POST"])
 def delete(animals_id):
-    animal = Animal.query.get(animals_id)
-    if animal:
-        db.session.delete(animal)
-        db.session.commit()
-    return redirect("/")
+    animals_db = Animal.query.filter_by(id=animals_id).first()
+    if not animals_db:  # Check if animal exists
+        return "Animal not found!"
+    if request.method == "POST":
+        try:
+            db.session.delete(animals_db)
+            db.session.commit()
+            flash('Error al eliminar el animal', 'success')
+            return redirect("/")
+        except Exception as e:
+            flash('Error al eliminar el animal', 'Error')
+            print(f'Error al eliminar el animal: {e}')
+            return redirect("/")
+    return render_template('delete.html', animals=animals_db)
 
 if __name__ == '__main__':
     app.run(debug=True)

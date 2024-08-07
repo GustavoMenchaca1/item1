@@ -4,7 +4,7 @@
 
 {% block main %}
 {% if animal %}
-<div class="container-fluid">
+<div>
   <div class="micolor">
 
   
@@ -18,7 +18,9 @@
     <li class="list-group-item">Género: {{ animal.gender }}</li>
     <li class="list-group-item">Cantidad: {{ animal.count }}</li>
    </ul>
-   <a href="/">Volver a la lista de Animales</a>
+   <div class="d-grid gap-2 d-md-flex justify-content-md-end" > 
+    <a href="/" type="button" class="btn btn-outline-primary" disabled>Volver a la lista de Animales</a>
+</div>
   </div>
 </div>
 {% else %}

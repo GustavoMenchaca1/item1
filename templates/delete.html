@@ -2,13 +2,13 @@
 
 {% block main %}
 
-<div class="micolor">
+<div class="container-fluid">
 
-     <h1 class="text-center mt-5 mb-5 text-dark">Formulario para edición</h1>
+     <h1 class="text-center mt-5 mb-5 text-dark">Está a punto de eliminar:</h1>
 
     
 
-    <form method="POST" action="/edit/{{ animals.id }}"> <input type="hidden" name="id" value="{{ animals.id }}"> 
+    <form method="POST" action="/delete/{{ animals.id }}"> <input type="hidden" name="id" value="{{ animals.id }}"> 
         
         <div class="mb-3">
             <label for="location" class="form-label">Locacion:</label>
@@ -35,20 +35,13 @@
             <input type="text" class="form-control" id="count" name="count" value="{{animals.count}}">
         </div>
         
-        <button type="submit" class="btn btn-success">Guardar cambios</button>
+        <button type="submit" class="btn btn-danger">ELIMINAR</button>
     </form>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end" > 
         <a href="/" type="button" class="btn btn-outline-primary" disabled>Volver a la lista de Animales</a>
     </div>
-    
 </div>
 
 
+
 {% endblock main %}
-
-
-
-
-
-
-        
